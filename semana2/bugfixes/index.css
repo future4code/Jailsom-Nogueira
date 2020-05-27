@@ -29,6 +29,7 @@ input {
 
 button:focus {
     color: white;
+    border: none;
 }
 
 button:active {
@@ -53,6 +54,10 @@ div img {
 
 a {
     text-decoration: none;
+}
+
+li {
+    list-style-position: inside;
 }
 
 .botao-amarelo {
