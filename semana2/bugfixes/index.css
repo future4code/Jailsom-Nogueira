@@ -161,3 +161,11 @@ td img {
     max-width: 50px;
     min-width: 50px;
 }
+
+div table {
+    margin: 0 auto;
+}
+
+div tbody {
+    text-align: center;
+}
