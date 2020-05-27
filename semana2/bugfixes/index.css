@@ -31,6 +31,10 @@ button:focus {
     color: white;
 }
 
+button:active {
+    color: white;
+}
+
 button:hover {
     background-color: #c3a727;
 }
@@ -141,7 +145,6 @@ td button {
     margin-top: 20px;
     height: 100px;
 }
-
 
 #back-button {
     background-color: white;
