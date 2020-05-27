@@ -146,3 +146,8 @@ td button {
 #back-button:hover {
     background-color: #635a3d
 }
+
+td img {
+    max-width: 50px;
+    min-width: 50px;
+}
