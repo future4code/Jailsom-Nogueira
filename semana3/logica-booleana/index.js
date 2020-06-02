@@ -22,13 +22,8 @@ d.
  VII.  1
 */
 
-// Graus Fahrenheit(°F) para Kelvin(K)
-// (KELVIN) = (GRAUS_FAHRENHEIT - 32)*5/9 + 273.15
-
-//Graus Celsius(°C) para Graus Fahrenheit (°F)
-//(GRAUS_FAHRENHEIT) = (GRAUS_CELSIUS)*9/5 + 32
 //1 - 
-console.log("Exercício 1 de programação")
+console.log("Exercício 1 de programação:")
 let valorK = 0
 let valorF = 0
 let valorC = 0
@@ -60,7 +55,7 @@ console.log("d- " + valorC + "°C " + valorF + "°F " + valorK + "K")
 
 //2. Faça um programa que faça 5 perguntas para o usuário (pode ser criativo nesta parte). Imprima-as com as respostas no console da seguinte forma:
 
-console.log("Exercício 2 de programação")
+console.log("Exercício 2 de programação:")
 
 endereco = ""
 corF = ""
@@ -81,7 +76,7 @@ console.log("4. Qual a sua altura?" + "\n" + "Resposta: " + altura)
 console.log("5. Pratica algum esporte?" + "\n" + "Resposta: " + esporte)
 
 
-console.log("Exercício 3 de programação")
+console.log("Exercício 3 de programação:")
 quilowattH = 0.05
 valor = 280 * quilowattH
 console.log("a- Por 280Qh, o valor a ser pago é: R$" + valor)
@@ -92,3 +87,34 @@ valor = 280 * quilowattH
 desconto = (porCento / 100) * valor
 pagar = valor - desconto
 console.log("b- Por 280Qh, o valor a ser pago é: R$" + valor + "\n" + "com o desconto de " + porCento + "% restariam R$" + pagar)
+
+//DESAFIO
+console.log("Desafio:")
+
+libras = prompt("Insira o valor em libras")
+kilos = libras / 2.2046
+console.log("a- " + libras + "lb equivalem a " + kilos + "kg")
+kilos = 0
+libras = 0
+
+kilos = 10 / 35.274
+console.log("b- 10.5oz equivalem a " + kilos + "kg")
+kilos = 0
+
+metros = 100 * 1609
+console.log("c- 100mi equivalem a " + metros + "m")
+metros = 0
+
+metros = 50 / 3.281
+console.log("d- 50ft equivalem a " + metros + "m")
+metros = 0
+
+litros = 103.56 * 3.79
+console.log("e- 103.56gal equivalem a " + litros + "l")
+litros = 0
+
+litros = (450 * 6) / 25
+console.log("f- 450xic equivalem a " + litros + "l")
+litros = 0
+
+console.log("g- resposta no item 'a' acima")
