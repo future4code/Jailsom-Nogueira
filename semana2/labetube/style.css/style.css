@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0%;
+    list-style: none;
+    font-family: Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+
+/**HEADER**/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ef843a;
+    height: 50px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: black;
+}
+
+input {
+    width: 80px;
+    border: 0;
+    padding: 5px;
+    margin-right: 40px;
+}
+
+input[type=text] {
+    width: 100px;
+    transition: ease-in-out, width .35s ease-in-out;
+    /*frescura que aprendi hj no w3school *-*/
+}
+
+input[type=text]:focus {
+    width: 250px;
+    outline: none;
+}
+
+
+/**CORPO**/
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#index-article {
+    width: 80vw;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+#index-article section {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    border: 1px solid;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+#index-article section span {
+    text-align: left;
+    padding: 20px 5px;
+    font-weight: 600;
+}
+
+section img {
+    width: auto;
+}
+
+
+/**FOOTER**/
+
+footer {
+    background-color: #323b3e;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #ef843a;
+    border: 0;
+}
+
+footer span {
+    font-weight: 500;
+    color: white;
+}
+
+
+/**PÁGINA DE VIDEO**/
+
+#video-article {
+    width: 80vw;
+    padding: 20px;
+    margin-bottom: 20vw;
+}
+
+#video-section {
+    display: flex;
+    flex-direction: column;
+}
+
+#video-section span {
+    text-align: left;
+    padding: 20px 5px;
+    font-weight: 600;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.video-page-footer {
+    position: relative;
+    width: auto;
+}
+
+@media screen and (max-width: 1000px) and (min-width: 800px) {
+    #index-article {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) and (min-width: 500px) {
+    #index-article {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .video-page-footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    input {
+        margin-right: 10px;
+    }
+    #index-article {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    #index-article section {
+        max-width: 400px;
+        max-height: 400px;
+    }
+    section img {
+        width: 400px;
+        height: auto;
+    }
+    #main-container {
+        margin-bottom: 30px;
+    }
+}
