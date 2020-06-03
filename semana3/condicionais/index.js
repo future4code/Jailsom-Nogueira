@@ -45,3 +45,95 @@ no escopo geral, junto das demais.
 // } else {
 //     console.log("Os números são iguais!") // caso os números sejam iguais
 // }
+
+// 4.b. 
+// let a = prompt("Digite o primeiro número")
+// a = Number(a)
+// let b = prompt("Digite o segundo número")
+// b = Number(b)
+// let c = prompt("Digite o segundo número")
+// c = Number(c)
+
+// if (a > b) {
+//     if (b > c) {
+//         console.log(a, b, c)
+//     } else if (a > c) {
+//         console.log(a, c, b)
+//     } else {
+//         console.log(c, a, b)
+//     }
+// } else {
+//     if (b > c) {
+//         if (a > c) {
+//             console.log(b, a, c)
+//         } else {
+//             console.log(b, c, a)
+//         }
+//     } else {
+//         console.log(c, b, a)
+//     }
+// }
+
+// 4.b. 
+// let a = prompt("Digite o primeiro número")
+// a = Number(a)
+// let b = prompt("Digite o segundo número")
+// b = Number(b)
+// let c = prompt("Digite o segundo número")
+// c = Number(c)
+
+// if ((a !== b) && (a !== c) && (b !== c)) {
+//     if (a > b) {
+//         if (b > c) {
+//             console.log(a, b, c)
+//         } else if (a > c) {
+//             console.log(a, c, b)
+//         } else {
+//             console.log(c, a, b)
+//         }
+//     } else {
+//         if (b > c) {
+//             if (a > c) {
+//                 console.log(b, a, c)
+//             } else {
+//                 console.log(b, c, a)
+//             }
+//         } else {
+//             console.log(c, b, a)
+//         }
+//     }
+// } else {
+//     console.log("Os números são iguais!")
+// }
+
+// 5.a.
+// https://drive.google.com/file/d/13VFoI2qUGH8d-oAQ4jj8OoVeDDnC5Fjh/view?usp=sharing
+
+// 5.b
+// let escolha = prompt("O animal tem ossos? SIM ou NÃO")
+// if (escolha !== "NÃO") {
+//     let escolha = prompt("Tem pêlos? SIM ou NÃO")
+//     if (escolha === "SIM") { 
+//         let escolha = prompt("É racional? SIM ou NÃO")
+//         if (escolha === "SIM") {
+//             console.log("HUMANO")
+//         } else {
+//             console.log("NÃO HUMANO")
+//         }
+//     } else {
+//         let escolha = prompt("Tem penas? SIM ou NÃO")
+//         if (escolha === "NÃO") {
+//             let escolha = prompt("Terrestre? SIM ou NÃO")
+//             if (escolha === "SIM") {
+//                 let escolha = prompt("Anfíbio ou Réptil?")
+//                 console.log(escolha)
+//             } else {
+//                 console.log("PEIXE")
+//             }
+//         } else {
+//             console.log("AVE")
+//         }
+//     }
+// } else {
+//     console.log("INVERTEBRADO")
+// }
