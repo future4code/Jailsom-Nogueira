@@ -73,6 +73,7 @@ DESAFIO 1
 000
 0000
 */
+
 /*
 DESAFIO 2
 */
@@ -100,3 +101,34 @@ DESAFIO 2
 //     console.log("Acertou!") //quando acerta, sai do loop e apresenta esta
 //     console.log("O número de tentativas foi : " + tentativas)
 // }
+
+/*
+DESAFIO 3
+*/
+// let numero = Math.floor((Math.random() * 10) + 1)
+// console.log(numero)
+// console.log("Vamos jogar!")
+// let chute = Number(prompt("Dê seu chute!")) //primeiro chute
+// let tentativas = 1 //declara e add a primeira tentativa
+
+// if (numero === chute) { //Caso acerte de primeira só executa o primeiro if
+//     console.log("Acertou de primeira!")
+//     console.log("O número de tentativas foi : " + tentativas)
+// } else {
+//     while (numero !== chute) { //enquanto não acertar, entra no loop
+//         if (chute < numero) { //caso o chute for menor do que o número
+//             console.log("Errrrrrrrou, o chute foi menor")
+//             console.log("O número chutado foi: " + chute)
+//         } else { //se não é maior, pq o igual já foi tratado na condição inicial 
+//             console.log("Errrrrrrrou, o chute foi maior")
+//             console.log("O número chutado foi: " + chute)
+//         }
+//         chute = Number(prompt("Dê seu chute!")) //abre para um novo chute
+//         tentativas += 1 //add uma tentativa
+//     }
+//     console.log("Acertou!") //quando acerta, sai do loop e apresenta esta
+//     console.log("O número de tentativas foi : " + tentativas)
+// }
+//Reflexão
+//Não foi fácil, mas só porque eu não tinha declarado minhas variáveis como número. Quando lancei o "Math", 
+//começou a chover números e travou tudo :-). Mas consegui descobrir sozinho e finalizei tudo em cerca de 40min.
