@@ -402,6 +402,11 @@
 //             jogo = false
 //             console.log("Usuário - cartas: " + cartasUser + ".Pontuação: " + pontuacaoUsuario)
 //             console.log("Computador - cartas: " + cartasComp + ".Pontuação: " + pontuacaoComputador)
+//             if ((pontuacaoComputador <= 21) && (pontuacaoUsuario <= 21)) {
+//                 if (pontuacaoComputador === pontuacaoUsuario) {
+//                     alert("Empate!")
+//                 }
+//             }
 //             if (pontuacaoUsuario > 21) {
 //                 alert("Suas cartas foram " + cartasUser + ". Pontuação: " + pontuacaoUsuario +
 //                     "\n" +
@@ -421,13 +426,6 @@
 //                     "As cartas do computador foram " + cartasComp + ". Pontuação: " + pontuacaoComputador +
 //                     "\n" +
 //                     "Você ganhou")
-//             } else {
-//                 alert("Suas cartas foram " + cartasUser + ". Pontuação: " + pontuacaoUsuario +
-//                     "\n" +
-//                     "As cartas do computador foram " + cartasComp + ". Pontuação: " + pontuacaoComputador +
-//                     "\n" +
-//                     "O computador ganhou!"
-//                 )
 //             }
 //         }
 //     }
