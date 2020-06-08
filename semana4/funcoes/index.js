@@ -85,4 +85,87 @@
 //         " estudante.")
 //     return dados;
 // }
+//
 // console.log(dadosEstudante(dados))
+
+//5.
+// let mensagem = ""
+
+// function seculos() {
+//     let seculo
+//     let ano = Number(prompt("Qual ano entre 1000 e 2020?"))
+
+//     if ((ano >= 1000) && (ano < 1100)) {
+//         seculo = "XI"
+//     } else if ((ano >= 1100) && (ano < 1200)) {
+//         seculo = "XII"
+//     } else if ((ano >= 1200) && (ano < 1300)) {
+//         seculo = "XIII"
+//     } else if ((ano >= 1300) && (ano < 1400)) {
+//         seculo = "XIV"
+//     } else if ((ano >= 1400) && (ano < 1500)) {
+//         seculo = "XV"
+//     } else if ((ano >= 1500) && (ano < 1600)) {
+//         seculo = "XVI"
+//     } else if ((ano >= 1600) && (ano < 1700)) {
+//         seculo = "XVII"
+//     } else if ((ano >= 1700) && (ano < 1800)) {
+//         seculo = "XVIII"
+//     } else if ((ano >= 1800) && (ano < 1900)) {
+//         seculo = "XIX"
+//     } else if ((ano >= 1900) && (ano < 2000)) {
+//         seculo = "XX"
+//     } else if ((ano >= 2000) && (ano <= 2020)) {
+//         seculo = "XXI"
+//     }
+//     mensagem = String("O ano " + ano + " pertence ao século " + seculo)
+//     return mensagem;
+// }
+
+// console.log(seculos(mensagem))
+
+//6.
+// a.
+// const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+// let itens = 0
+//     // console.log(itens)
+
+// function quantosItens() {
+//     itens = array.length
+//     return itens;
+// }
+
+// console.log(quantosItens(itens))
+
+//b.
+// let numeros = []
+// function testeDePares() {
+//     const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] % 2 === 0) {
+//             numeros.push(true)
+//         } else {
+//             numeros.push(false)
+//         }
+//     }
+//     return numeros
+// }
+// console.log(testeDePares(numeros))
+//resultado do console: [true, false, false, true, true, true, false, false, true, true]
+
+//c.
+// let pares = 0
+
+// function testeDePares() {
+//     const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] % 2 === 0) {
+//             pares = pares + 1
+//         }
+//     }
+//     return pares
+// }
+// console.log(testeDePares(pares))
+
+//d.
+// acho que fiz isso sem querer na b :D
