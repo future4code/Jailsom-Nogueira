@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    padding: 20px 0;
+    justify-content: center;
+    border-bottom: 1px solid gray;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.calendario {
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    column-gap: 30px;
+    row-gap: 10px;
+}
+
+.calendario div {
+    width: 100%;
+    height: 40vh;
+    padding: 10px;
+    border: 1px dashed gray;
+}
+
+ul {
+    margin-left: 16px;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: #FFFFFF;
+    padding: 6px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+}
