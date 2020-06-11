@@ -8,6 +8,8 @@ section {
     flex-direction: column;
     width: 20%;
     margin: 30px;
+    background-color: gainsboro;
+    padding: 4px;
 }
 
 .container {
@@ -17,4 +19,16 @@ section {
 
 .uma-despesa {
     margin: 10px 0;
+}
+
+label {
+    margin-top: 4px;
+}
+
+button {
+    margin: 5px;
+}
+
+p {
+    background-color: ghostwhite;
 }
