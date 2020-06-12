@@ -131,4 +131,46 @@
 //     console.log(b + " é maior " + c)
 // }
 
-// 6.
+// Exercícios de Funções
+// 1.
+// const array = [25, 1, 55, 64, 121, 44, 11, 84, 51, 120, 48, 2, 66]
+
+// let minhaFuncao = () => {
+//     let i = 0
+//     let segundoMaior = array[0]
+//     let segundoMenor = array[0]
+//     let maior = array[0]
+//     let menor = array[0]
+
+//     while (i < array.length) { //aqui descubro o maior
+//         if (array[i] > maior) {
+//             maior = array[i]
+//         }
+//         i++
+//     }
+//     i = 0
+//     while (i < array.length) { //aqui o segundo maior
+//         if ((array[i] > segundoMaior) && (segundoMaior < maior) && (array[i] !== maior)) {
+//             segundoMaior = array[i]
+//         }
+//         i++
+//     }
+//     i = 0
+
+//     while (i < array.length) { //aqui o menor
+//         if (array[i] < menor) {
+//             menor = array[i]
+//         }
+//         i++
+//     }
+//     i = 0
+//     while (i < array.length) { //aqui o segundo menor
+//         if ((array[i] < segundoMenor) && (segundoMenor > menor) && (array[i] !== menor)) {
+//             segundoMenor = array[i]
+//         }
+//         i++
+//     }
+//     return console.log(segundoMaior, segundoMenor)
+// }
+
+// const resultado = minhaFuncao(array)
