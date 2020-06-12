@@ -41,3 +41,29 @@
 // 		fruta.peso += 1
 // 		return fruta.peso
 // })
+
+// 2. 
+// const booleano1 = true
+// const booleano2 = false
+// const booleano3 = !booleano2 //true
+// const booleano4 = !booleano3 //false
+
+// a) `booleano1 && booleano2 && !booleano4`
+// true && false && true
+// false //resposta a
+// b) `(booleano1 && booleano2) || !booleano3`
+// (true && false)
+// false || false
+// false //resposta b 
+// c)  `(booleano2 || booleano3) && (booleano4 || booleano1)`
+// (false || true) && (false || true)
+// true && true
+// true //resposta c 
+// d) `!(booleano2 && booleano3) || !(booleano1 && booleano3)`
+// !(false && true) || !(true && true)
+// false || false
+// false //resposta d 
+// e) `!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)`
+// !(true) && !(true) || (!false && true && true)
+// !(true) && !(true) || (true)
+// true //resposta e
