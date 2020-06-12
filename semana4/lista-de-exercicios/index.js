@@ -67,3 +67,68 @@
 // !(true) && !(true) || (!false && true && true)
 // !(true) && !(true) || (true)
 // true //resposta e
+
+// 3. não funciona porque falta o calculo para se saber os pares, e unas cositas mas :D
+// const quantidadeDeNumerosPares = 5
+// let i = 0
+// let numeroPar = 0
+// while (i < quantidadeDeNumerosPares) {
+//     if (numeroPar % 2 === 0) {
+//         i += 1
+//         console.log(numeroPar)
+//     }
+//     numeroPar += 1
+// }
+
+// 4.
+// let a = 105
+// let b = 10
+// let c = 1
+// console.log(a, b, c)
+
+// triangulo()
+
+// function triangulo() {
+//     if ((a === b) && (b === c)) {
+//         console.log("Equilátero: todos lados iguais")
+//     } else if ((a !== b) && (b !== c) && (c !== a)) {
+//         console.log("Escaleno: todos lados diferentes")
+//     } else {
+//         console.log("Isósceles: 2 lados iguais")
+//     }
+// }
+
+// 5.
+// let a = 4
+// let b = 8
+// console.log(a, b)
+
+// // i
+// if (a > b) {
+//     console.log(a + " maior que " + b)
+// } else if (a < b) {
+//     console.log(a + " menor que " + b)
+// } else {
+//     console.log(a + " " + b + " são iguais")
+// }
+// // ii
+// if (a % b === 0) {
+//     console.log(a + " é divisível por " + b)
+// } else {
+//     console.log(a + " não é divisível por " + b)
+// }
+// if (b % a === 0) {
+//     console.log(b + " é divisível por " + a)
+// } else {
+//     console.log(b + " não é divisível por " + a)
+// }
+// // iii
+// if (a >= b) {
+//     const c = a - b
+//     console.log(a + " é maior" + c)
+// } else if (b > a) {
+//     const c = b - a
+//     console.log(b + " é maior " + c)
+// }
+
+// 6.
