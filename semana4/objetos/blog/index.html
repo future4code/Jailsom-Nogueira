@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Blog</h1>
+        </header>
+        <!-- div de captação de novos posts -->
+        <div class="novos-posts">
+            <label for="novo-titulo"><h1>Titulo</h1></label>
+            <input type="text" name="novoTitulo" value="" id="novoTituloBlog">
+            <label for="novo-autxr"><h3>Autoria</h3></label>
+            <input type="text" name="novoAutxr" value="" id="novoAutxrBlog">
+            <div class="areaDeTexto">
+                <label for="post-Blog">Crie seu post</label>
+                <textarea type="text" name="postBlog" value="" id="novoPostBlog" placeholder="Seu post aqui..." cols="30" rows="10"></textarea>
+            </div>
+            <!-- Desafio 1 -->
+            <label for="nova-imagem">Opcional: insira uma imagem</label>
+            <input type="text" name="novaImagem" value="" id="imagemOpcional" placeholder="Link da imagem aqui...">
+            <!-- /Desafio 1 -->
+            <a href="posts.html" target="_blank"> <button onclick="botaoEnviar(event)">ENVIAR</button></a>
+        </div>
+        <!--FIM div de captação de novos posts -->
+    </div>
+</body>
+
+</html>
