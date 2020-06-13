@@ -197,3 +197,13 @@
 //     return console.log(retangulo);
 // }
 // const resultado = criaRetangulo(2, 3)
+
+// 3.
+const filmefavorito = {
+    titulo: 'Matrix',
+    ano: '1999',
+    diretor: 'Wachowski Sister`s',
+    atorxs: ['Keanu Reeves', 'Carrie‑ Anne Moss', 'Laurence Fishburne']
+}
+console.log('Venha assistir ao filme ' + filmefavorito.titulo + ' de ' + filmefavorito.ano + ', dirigido por ' +
+    filmefavorito.diretor + ' e estrelado por ' + filmefavorito.atorxs[0] + ', ' + filmefavorito.atorxs[1] + ', ' + filmefavorito.atorxs[2] + '. ')
