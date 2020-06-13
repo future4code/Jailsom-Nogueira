@@ -174,3 +174,9 @@
 // }
 
 // const resultado = minhaFuncao(array)
+
+// 2.
+// let helloWorld = () => {
+//     return alert("Hello Future4")
+// }
+// const resultado = helloWorld()
