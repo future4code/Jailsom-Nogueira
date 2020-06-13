@@ -199,11 +199,27 @@
 // const resultado = criaRetangulo(2, 3)
 
 // 3.
-const filmefavorito = {
-    titulo: 'Matrix',
-    ano: '1999',
-    diretor: 'Wachowski Sister`s',
-    atorxs: ['Keanu Reeves', 'Carrie‑ Anne Moss', 'Laurence Fishburne']
-}
-console.log('Venha assistir ao filme ' + filmefavorito.titulo + ' de ' + filmefavorito.ano + ', dirigido por ' +
-    filmefavorito.diretor + ' e estrelado por ' + filmefavorito.atorxs[0] + ', ' + filmefavorito.atorxs[1] + ', ' + filmefavorito.atorxs[2] + '. ')
+// const filmefavorito = {
+//     titulo: 'Matrix',
+//     ano: '1999',
+//     diretor: 'Wachowski Sister`s',
+//     atorxs: ['Keanu Reeves', 'Carrie‑ Anne Moss', 'Laurence Fishburne']
+// }
+// console.log('Venha assistir ao filme ' + filmefavorito.titulo + ' de ' + filmefavorito.ano + ', dirigido por ' +
+//     filmefavorito.diretor + ' e estrelado por ' + filmefavorito.atorxs[0] + ', ' + filmefavorito.atorxs[1] + ', ' + 
+//     filmefavorito.atorxs[2] + '. ')
+
+//4. 
+// const pessoa = [
+//     { nome: 'Jailsom', idade: 36, email: 'jailsom@gmail.com', endereco: 'mora na terra' },
+// ]
+// console.log(pessoa)
+// const anonimizarPessoa = pessoa.map((anonimo, index, array) => {
+//     return {
+//         nome: 'anonimo',
+//         idade: anonimo.idade,
+//         email: anonimo.email,
+//         endereco: anonimo.endereco
+//     }
+// })
+// console.log(anonimizarPessoa)
