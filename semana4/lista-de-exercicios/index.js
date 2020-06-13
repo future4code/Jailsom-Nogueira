@@ -180,3 +180,20 @@
 //     return alert("Hello Future4")
 // }
 // const resultado = helloWorld()
+
+// Exercícios de Objetos
+// 1.
+// Arrays são usados para guardar vários itens/valores em uma mesma variável.
+// Ojbetos são um aglomerado de propriedades associados a um item através de uma chave.
+
+// 2.
+// let criaRetangulo = (lado1, lado2) => {
+//     const retangulo = {
+//         largura: lado1,
+//         altura: lado2,
+//         perímetro: 2 * (lado1 + lado2),
+//         area: lado1 * lado2
+//     }
+//     return console.log(retangulo);
+// }
+// const resultado = criaRetangulo(2, 3)
