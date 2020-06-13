@@ -226,28 +226,63 @@
 
 //Exercícios de Funções de array
 // 1.
-const pessoas = [
-    { nome: "Pedro", idade: 20 },
-    { nome: "João", idade: 10 },
-    { nome: "Paula", idade: 12 },
-    { nome: "Artur", idade: 89 }
-]
-console.log(pessoas)
-const adultos = pessoas.filter((adulto, index, array) => {
-    if (adulto.idade >= 20) {
-        return {
-            nome: pessoas.nome,
-            idade: pessoas.idade
-        }
-    }
+// a.
+// const pessoas = [
+//     { nome: "Pedro", idade: 20 },
+//     { nome: "João", idade: 10 },
+//     { nome: "Paula", idade: 12 },
+//     { nome: "Artur", idade: 89 }
+// ]
+// console.log(pessoas)
+// const adultos = pessoas.filter((adulto, index, array) => {
+//     if (adulto.idade >= 20) {
+//         return {
+//             nome: pessoas.nome,
+//             idade: pessoas.idade
+//         }
+//     }
+// })
+// console.log(adultos)
+// b.
+// const menores = pessoas.filter((deMenor, index, array) => {
+//     if (deMenor.idade < 20) {
+//         return {
+//             nome: pessoas.nome,
+//             idade: pessoas.idade
+//         }
+//     }
+// })
+// console.log(menores)
+
+// 2.
+const array = [1, 2, 3, 4, 5, 6]
+console.log("O array é " + array)
+    // a.
+const multiplicaPorDois = array.map((multiplicados, index, array) => {
+    let resultado1 = multiplicados * 2
+    return resultado1
 })
-console.log(adultos)
-const menores = pessoas.filter((deMenor, index, array) => {
-    if (deMenor.idade < 20) {
-        return {
-            nome: pessoas.nome,
-            idade: pessoas.idade
-        }
-    }
+console.log("Multiplicados por 2x " + multiplicaPorDois)
+    // b.    
+const multiplicaPorTres = array.map((multiplicados, index, array) => {
+    const resultado2 = multiplicados * 3
+    return resultado2
 })
-console.log(menores)
+console.log("Multiplicados por 3x " + multiplicaPorTres)
+
+// const multPorTresString = multiplicaPorTres.map((umaString, index, array) => {
+//     resultadoString = umaString
+//     return resultadoString
+// })
+// console.log("String por 3x " + multPorTresString)
+
+// c.
+const imparPar = array.map((testeDeNumero, index, array) => {
+    if (testeDeNumero % 2 === 0) {
+        resultado3 = testeDeNumero + ' é par'
+    } else {
+        resultado3 = testeDeNumero + ' é ímpar'
+    }
+    return resultado3
+})
+console.log(imparPar)
