@@ -223,3 +223,31 @@
 //     }
 // })
 // console.log(anonimizarPessoa)
+
+//Exercícios de Funções de array
+// 1.
+const pessoas = [
+    { nome: "Pedro", idade: 20 },
+    { nome: "João", idade: 10 },
+    { nome: "Paula", idade: 12 },
+    { nome: "Artur", idade: 89 }
+]
+console.log(pessoas)
+const adultos = pessoas.filter((adulto, index, array) => {
+    if (adulto.idade >= 20) {
+        return {
+            nome: pessoas.nome,
+            idade: pessoas.idade
+        }
+    }
+})
+console.log(adultos)
+const menores = pessoas.filter((deMenor, index, array) => {
+    if (deMenor.idade < 20) {
+        return {
+            nome: pessoas.nome,
+            idade: pessoas.idade
+        }
+    }
+})
+console.log(menores)
