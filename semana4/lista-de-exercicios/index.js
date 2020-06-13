@@ -315,7 +315,6 @@
 // console.log(quemNaoEntra)
 
 // 4.
-// a.
 // const consultas = [
 //     { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
 //     { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
@@ -340,3 +339,23 @@
 //     return aConsulta
 // })
 // console.log(todasConsultas)
+
+// 5.
+// const contas = [
+//     { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+//     { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+//     { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+//     { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+//     { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+//     { cliente: "Soter", saldoTotal: 1200, compras: [] }
+// ]
+
+// contas.forEach((pessoa, i, a) => {
+//     let totalCompras = 0
+//     let j = 0
+//     for (j = 0; j < pessoa.compras.length; j++) {
+//         totalCompras += pessoa.compras[j];
+//     }
+//     pessoa.saldoTotal = pessoa.saldoTotal - totalCompras
+// })
+// console.log(contas)
