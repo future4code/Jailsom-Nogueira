@@ -1,5 +1,6 @@
-import React from 'react'
-import './Post.css'
+import React from 'react';
+import './Post.css';
+import styled from 'styled-components';
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 // import {IconeMarcado} from '../IconeComContador/IconeMarcado.js'
@@ -10,6 +11,38 @@ import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 import iconeMarcadoVazio from '../../img/marcado-vazio.svg'
 import iconeMarcadoCheio from '../../img/marcado-cheio.svg'
+
+const PostContainer = styled.div`
+    border: 1px solid gray;
+    width: 300px;
+    margin-bottom: 10px;
+`;
+
+const PostHeader = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+`;
+
+const PostFooter = styled.div`
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: space-between;
+`;
+
+const UserPhoto = styled.img`
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+`;
+
+const PostPhoto = styled.img`
+width: 100%;
+`;
 
 class Post extends React.Component {
   state = {
@@ -77,15 +110,15 @@ class Post extends React.Component {
     }
 
     return(
-        <div className={'post-container'}>
-          <div className={'post-header'}>
-            <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+        <PostContainer>
+          <PostHeader>
+            <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
             <p>{this.props.nomeUsuario}</p>
-          </div>
-
-          <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'}/>
-
-          <div className={'post-footer'}>
+          </PostHeader>
+          
+          <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
+          
+          <PostFooter>
             <IconeComContador
               icone={iconeCurtida}
               onClickIcone={this.onClickCurtida}
@@ -102,9 +135,9 @@ class Post extends React.Component {
               icone={iconeMarcado}
               onClickIcone={this.onClickMarcado}
             />
-          </div>
+          </PostFooter>
           {componenteComentario}
-        </div>
+        </PostContainer>
     )
   }
 }
