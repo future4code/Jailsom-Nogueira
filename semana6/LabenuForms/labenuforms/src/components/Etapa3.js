@@ -10,7 +10,7 @@ const Etapa3Container = styled.div`
 function Etapa3() {
   return (
     <Etapa3Container>
-        <h1>ETAPA 1 - DADOS GERAIS</h1>
+        <h1>ETAPA 3 - DADOS GERAIS</h1>
 
         <p>5. Pq vc não terminou um curso de graduação?</p>
         <input></input>
