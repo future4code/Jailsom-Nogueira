@@ -26,11 +26,19 @@ class App extends React.Component {
     }
 
   componentDidUpdate() {
-
+    const novaTarefa = {
+      id: this.state.id,
+      texto: this.state.inputValue,
+      completa: this.state.completa
+    };
+    const guardaTarefa = [...this.state.tarefas, novaTarefa]
+    localStorage.setItem("guardaTarefa", JSON.stringify(guardaTarefa));
   };
 
   componentDidMount() {
-
+    const tarefaString = localStorage.getItem("guardaTarefa");
+    const tarefaObjeto = JSON.parse(tarefaString);
+    console.log(tarefaObjeto);
   };
 
   onChangeInput = e => {
@@ -48,12 +56,15 @@ class App extends React.Component {
   }
 
   selectTarefa = (id) => {
-    const tarefaCompleta = this.state.tarefas.filter((cadaTarefa) =>{//passa pelo array de tarefas, copiando para tarefaCompleta
+    const novaTarefa = this.state.tarefas.map((cadaTarefa) =>{//passa pelo array de tarefas, copiando para novaTarefa
       if(id === cadaTarefa.id){ //se o id clicado é o mesmo que o itinerado 
-        this.setState({completa: true}) //transorme completa em true
-      }//se não, faça nada 
+        const novaTarefa = {...cadaTarefa, completa: !cadaTarefa.completa}
+        return novaTarefa
+      } else {
+        return cadaTarefa
+      }
     })
-    this.setState({tarefas: tarefaCompleta}) //devolve a lista completa já com as alterações para o array de tarefas
+    this.setState({tarefas: novaTarefa}) //devolve a lista completa já com as alterações para o array de tarefas
   }
 
   onChangeFilter = e => {
@@ -72,7 +83,7 @@ class App extends React.Component {
             return true
         }
       })
-      console.log(this.state.tarefas)
+      // console.log(this.state.tarefas)
     return (
       <div className="App">
         <h1>Lista de tarefas</h1>
