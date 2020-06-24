@@ -4,7 +4,7 @@ import './styles.css'
 
 const TarefaList = styled.ul`
   padding: 0;
-  width: 200px;
+  width: 300px;
 `
 
 const Tarefa = styled.li`
@@ -16,6 +16,44 @@ const InputsContainer = styled.div`
   display: grid;
   grid-auto-flow: column;
   gap: 10px;
+`
+const CadaTarefa = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: gainsboro;
+  > button{
+      z-index: 1;
+      font-size: inherit;
+      font-family: inherit;
+      color: white;
+      padding: 0.4em;
+      outline: none;
+      border: none;
+      background-color: hsl(236, 32%, 26%);
+      margin-left: 5px;
+  }
+  > button:hover {
+      cursor: pointer;
+      animation: jelly 0.5s;
+  }
+  @keyframes jelly {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
 `
 
 class App extends React.Component {
@@ -67,6 +105,19 @@ class App extends React.Component {
     this.setState({tarefas: novaTarefa}) //devolve a lista completa já com as alterações para o array de tarefas
   }
 
+  apagarTarefa = (id) => {
+    const novaListaTarefa = this.state.tarefas.filter((cadaTarefa) => {
+      return id !== cadaTarefa.id
+    })
+    
+    this.setState({tarefas: novaListaTarefa})
+  }
+
+  apagarTodas = () => {
+    const listaDeTarefas = []
+    this.setState({tarefas: listaDeTarefas})
+  }
+
   onChangeFilter = e => {
     this.setState({ filter: e.target.value });
   };
@@ -105,12 +156,16 @@ class App extends React.Component {
         <TarefaList>
           {listaFiltrada.map(tarefa => {
             return (
-              <Tarefa
-                completa={tarefa.completa}
-                onClick={() => this.selectTarefa(tarefa.id)}
-              >
-                {tarefa.texto}
-              </Tarefa>
+              <CadaTarefa>
+                <Tarefa
+                  completa={tarefa.completa}
+                  onClick={() => this.selectTarefa(tarefa.id)}
+                >
+                  {tarefa.texto}
+                </Tarefa>
+                <button onClick={() => this.apagarTarefa(tarefa.id)}>Apagar</button>
+                <button onClick={this.apagarTodas}>Limpar</button>
+              </CadaTarefa>
             )
           })}
         </TarefaList>
