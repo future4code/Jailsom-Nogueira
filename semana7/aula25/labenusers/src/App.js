@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Users from "./components/Users";
 import NewUser from "./components/NewUser";
-import axios from "axios";
-
 
 const AppContainer = styled.div`
 display: flex;
