@@ -49,7 +49,10 @@ class Users extends React.Component {
       };
 
       deleteUser = (userId) => {
-        axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
+        let r= window.confirm("Tem certeza de que deseja deletar?");
+        if (r===true)
+          {
+            axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
             {
                 headers: {
                   Authorization: "jailsom-nogueira-turing"
@@ -63,6 +66,7 @@ class Users extends React.Component {
             .catch(error => {
                console.log(error.data);
             });
+          }
         };
 
   render() {
@@ -74,7 +78,7 @@ class Users extends React.Component {
             <h3>Usuários Cadastrados:</h3>
               <ul>
               {this.state.usersList.map(user => {
-                return <SingleUser>
+                return <SingleUser key={user.id}>
                     {user.name}                   
                     <button onClick={() => this.deleteUser(user.id)}> X</button>
                   </SingleUser>               
