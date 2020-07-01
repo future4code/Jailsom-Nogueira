@@ -61,9 +61,11 @@ class Users extends React.Component {
             )
             .then(response => {
               //   console.log(response.data)
+              alert("Deletado com sucesso!")
               this.getUsersList();
             })
             .catch(error => {
+              alert("Algo errado não está certo!")
                console.log(error.data);
             });
           }
