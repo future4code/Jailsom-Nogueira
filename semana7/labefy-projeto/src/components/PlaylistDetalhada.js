@@ -22,6 +22,15 @@ const Gap = styled.div`
     height: 4vh;
 `;
 
+const tracksUl = styled.ul`
+    padding-inline-start: 0;
+    padding: 8px;
+`;
+
+const trackLi = styled.li`
+   
+`;
+
 class PlaylistDetalhada extends React.Component {
     state = {
         playlist: [],
@@ -101,35 +110,38 @@ class PlaylistDetalhada extends React.Component {
           });
       };
 
-    playNaMusica = (a,b) => {
-        let musica = new Audio(a);
-        if(b === "Play"){
-            musica.play()
-            this.setState({tocando: !this.state.tocando})
-        }else{
-            musica.pause()
-            this.setState({tocando: !this.state.tocando})
+      apagarMusica = (a) => {
+    let r= window.confirm('Tem certeza de que deseja apagar a musica?') ;
+    if (r===true)
+        {
+        axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.playlistId}/tracks/${a}`, axiosConfig,
+        )
+        .then(response => {
+            //   console.log(response.data)
+            alert("Apagada com sucesso!")
+            this.getPlaylistPorNome();
+        })
+        .catch(err => {
+            alert("Algo errado não está certo!")
+            console.log('apagarPlaylist' + err.data);
+        });
         }
-        // b === "Pause" ? musica.play() : musica.pause();
-        console.log(b)    
     };
 
    render() {
-        console.log(this.state.nomeMusica)
-        console.log(this.state.nomeArtista)
-        console.log(this.state.urlMusica)
       return (
         <PlaylistDetalhesContainer>
             <h1>Playlist: {this.state.playlistNome}</h1>
-            <ul>
+            <tracksUl>
                 {this.state.playlist.map(track => {
-                return <li key={track.id}>
-                    <p>{track.name}</p>
-                    <button onClick={() => this.playNaMusica(track.url , "Play")}>Play</button>
-                    <button onClick={() => this.playNaMusica(track.url , "Pause")}>Pause</button>
-                </li>               
+                return <trackLi key={track.id}>
+                    <p><strong>Nome da Música: </strong>{track.name}</p>
+                    <p><strong>Artista: </strong>{track.artist}</p>
+                    <audio src={track.url} controls="controls"></audio>
+                    <button onClick={() => this.apagarMusica(track.id)}>X</button>
+                </trackLi>               
                 })}
-            </ul>
+            </tracksUl>
             <h3>Adicionar música:</h3>
             <input             
                 value={this.state.nomeMusica}
