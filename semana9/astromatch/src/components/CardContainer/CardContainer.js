@@ -36,6 +36,7 @@ export default function CardContainer () {
       )
       .then(response => {
         getNewPerson()
+        setAnimationSwipe()
       })
       .catch(error => {
         console.log(error.data);
@@ -43,17 +44,28 @@ export default function CardContainer () {
   };
 
   const onClickRefuse = () => {
-    getNewPerson()
     setAnimationSwipe('swipeLeft')
+    axios
+    .get(`${baseUrl}${user}/person`)
+    .then( response => {
+      setPerson(response.data.profile);
+      setLoading(false)
+      setAnimationSwipe()
+      getNewPerson()
+    })
+    .catch( err => {
+      alert(err.message);
+    })
   };
 
-  const getNewPerson = () => {  
+  const getNewPerson = () => {
     setLoading(true)
     axios
     .get(`${baseUrl}${user}/person`)
     .then( response => {
       setPerson(response.data.profile);
       setLoading(false)
+      setAnimationSwipe()
     })
     .catch( err => {
       alert(err.message);

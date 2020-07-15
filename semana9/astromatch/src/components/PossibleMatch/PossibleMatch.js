@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
-import { PossibleMatchContainer, PersonData } from './style';
+import React, { useState, useEffect } from 'react';
+import { PossibleMatchContainer, PersonData, swipeRight, swipeLeft } from './style';
 
 export default function PossibleMatch (props) {
-  const [sideToSwipe, setSideToSwipe] = useState(props.sideToSwipe) //aqui recebo a escolha do swipe e guardo no estado
-  console.log(sideToSwipe) //aqui consigo conferir estes escolha
+  const [animation, setAnimation] = useState()
+
+  useEffect(() => {
+    if(props.sideToSwipe === "swipeRight"){
+      setAnimation( swipeRight )
+    }else if (props.sideToSwipe === "swipeLeft"){
+      setAnimation( swipeLeft )
+    }
+  },[props.sideToSwipe]);
+
   return(
-    <PossibleMatchContainer animation={sideToSwipe}> {/*aqui tentei enviar esta escolha para o styled-component*/}
+    <PossibleMatchContainer sideToSwipe={animation}> 
       <img src={props.photo} alt="Person" />
       <div>
         <PersonData>
