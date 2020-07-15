@@ -15,11 +15,22 @@ export const CardHeaderContainer = styled.div`
 export const AllMatchesIcon = styled(HappyHeartEyes)`
   width: 26px;
   color: rebeccapurple;
+  margin-right: 0.3rem;
+  transition: width 0.5s;
   cursor: pointer;
+  &:hover{
+    width: 30px;
+    color: tomato;
+  }
 `;
 
 export const CleacrMatchesIcon = styled(Trash)`
   width: 26px;
-  color: rebeccapurple;
+  color: darkcyan;
+  transition: width 0.5s;
   cursor: pointer;
+  &:hover{
+    width: 30px;
+    color: tomato;
+  }
 `;

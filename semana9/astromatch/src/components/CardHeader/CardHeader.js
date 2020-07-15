@@ -7,8 +7,8 @@ export default function CardHeader (props) {
     <CardHeaderContainer>
       <img src={logo} alt="Logo" />
       <div>
-        <CleacrMatchesIcon onClick={props.onClickIconClear}/>
         <AllMatchesIcon onClick={props.onClickIconMatches}/>
+        <CleacrMatchesIcon onClick={props.onClickIconClear}/>
       </div>
     </CardHeaderContainer>
   )

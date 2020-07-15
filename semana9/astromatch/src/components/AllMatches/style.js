@@ -17,7 +17,7 @@ export const MatchAvatar = styled.li`
   align-items: center;
   list-style-type: none;
   img{
-    width: 3.5rem;
+    max-width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
     margin: 0.80rem 0.80rem 0 0;
