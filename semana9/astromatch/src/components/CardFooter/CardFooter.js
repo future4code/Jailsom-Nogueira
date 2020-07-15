@@ -1,13 +1,11 @@
 import React from 'react';
 import {CardButtonContainer, XIcon, MatchIcon} from './style'
 
-const CardFooter = () => {
+export default function CardFooter (props) {
   return(
     <CardButtonContainer>
-      <XIcon />
-      <MatchIcon />
+      <XIcon onClick={props.getNewPerson}/>
+      <MatchIcon onClick={props.onClickAccept}/>  
     </CardButtonContainer>
   )
 }
-
-export default CardFooter

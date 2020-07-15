@@ -1,31 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { baseUrl } from '../../constants/Index';
-import { AllMatchsContainer, MatchAvatar } from './style'
+import { baseUrl, user } from '../../constants/Index';
+import { AllMatchsContainer, MathList, MatchAvatar } from './style'
 
-const AllMatches = () => {
+export default function AllMatches (props) {
   const [myMatches, setMyMatches] = useState([]);
   
   useEffect(() => {
-    getMatches()
-  }, []);
-
-  const getMatches = () => {
-    axios
-    .get(
-      'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/jailsom-nogueira-turing/matches'
-      )
-    .then( response => {
-      setMyMatches(response.data.matches);
-    })
-    .catch( err => {
-      alert(err.message);
-    })
-  }
+      axios
+      .get(`${baseUrl}${user}/matches`)
+      .then( response => {
+        setMyMatches(response.data.matches);
+        console.log(myMatches)
+      })
+      .catch( err => {
+        alert(err.message);
+      })
+  }, [props.emptyList]);
 
   return(
     <AllMatchsContainer>
-      <ul>
+      <MathList>
         {myMatches.map(match => {
           return(
             <MatchAvatar key={match.id}>
@@ -34,12 +29,7 @@ const AllMatches = () => {
             </MatchAvatar>
           )
         })}
-      </ul>
-
-      {/* <MatchAvatar />
-      <span>Nome do crush</span> */}
+      </MathList>
     </AllMatchsContainer>
   )
 }
-
-export default AllMatches

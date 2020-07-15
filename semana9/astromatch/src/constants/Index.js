@@ -1,2 +1,3 @@
-export const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/"
+export const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/";
 
+export const user = 'jailsom-nogueira-turing'

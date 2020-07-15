@@ -1,14 +1,17 @@
 import React from 'react';
 import logo from './img/logo-astromatch.png';
-import {CardHeaderContainer, AllMatchIcon} from './style'
+import {CardHeaderContainer, CleacrMatchesIcon, AllMatchesIcon} from './style'
 
-const CardHeader = (props) => {
+export default function CardHeader (props) {
   return(
     <CardHeaderContainer>
       <img src={logo} alt="Logo" />
-      <AllMatchIcon onClick={props.onClickIcon}/>
+      <div>
+        <CleacrMatchesIcon onClick={props.onClickIconClear}/>
+        <AllMatchesIcon onClick={props.onClickIconMatches}/>
+      </div>
     </CardHeaderContainer>
   )
 }
 
-export default CardHeader
+

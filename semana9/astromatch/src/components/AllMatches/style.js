@@ -6,14 +6,20 @@ export const AllMatchsContainer = styled.div`
   padding: 8px;
 `;
 
+export const MathList = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+`;
+
 export const MatchAvatar = styled.li`
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  background-color: gray;
-  margin-right: 0.80rem;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
   img{
     width: 3.5rem;
     height: 3.5rem;
+    border-radius: 50%;
+    margin: 0.80rem 0.80rem 0 0;
   }
 `;

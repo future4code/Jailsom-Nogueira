@@ -1,19 +1,15 @@
 import React from 'react';
 import {PossibleMatchContainer, PersonData} from './style';
 
-const PossibleMatch = () => {
+export default function PossibleMatch (props) {
   return(
     <PossibleMatchContainer>
-      <img src ="https://picsum.photos/536/354" />
+      <img src={props.photo} alt="Person" />
       <PersonData>
-        <h1>Nome,</h1>
-        <h3>Idade</h3>
+        <h2>{props.name}, </h2>
+        <h4>{props.age}</h4>
       </PersonData>
-      <span>Descrição aqui, Descrição aqui, Descrição aqui, 
-        Descrição aqui, Descrição aqui, Descrição aqui, 
-      </span>
+      <span>{props.bio}</span>
     </PossibleMatchContainer>
   )
 }
-
-export default PossibleMatch
