@@ -13,24 +13,24 @@ export const CardHeaderContainer = styled.div`
 `;
 
 export const AllMatchesIcon = styled(HappyHeartEyes)`
-  width: 26px;
+  width: 1.7rem;
   color: rebeccapurple;
   margin-right: 0.3rem;
   transition: width 0.5s;
   cursor: pointer;
   &:hover{
-    width: 30px;
+    width: 1.8rem;
     color: tomato;
   }
 `;
 
 export const CleacrMatchesIcon = styled(Trash)`
-  width: 26px;
+  width: 1.7rem;
   color: darkcyan;
   transition: width 0.5s;
   cursor: pointer;
   &:hover{
-    width: 30px;
+    width: 1.8rem;
     color: tomato;
   }
 `;

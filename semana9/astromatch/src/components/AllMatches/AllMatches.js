@@ -27,7 +27,7 @@ export default function AllMatches (props) {
         return(
           <MatchAvatar key={match.id}>
             <img src={match.photo} alt="Avatar" />
-            <span>{match.name}</span>
+            <b>{match.name}</b>
           </MatchAvatar>
         )
       })}

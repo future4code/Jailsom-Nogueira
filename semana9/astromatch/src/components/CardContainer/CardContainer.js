@@ -91,6 +91,20 @@ export default function CardContainer () {
 
   const loadingState = loading ? (<Loader />) : <CardBody>{CardBodyState}</CardBody>
 
+  useEffect(() => {
+    document.addEventListener("keydown", onKeyPressed);
+    return () => {
+        document.removeEventListener('keydown', onKeyPressed) 
+    }
+    function onKeyPressed(e) {
+      if(e.code === 'ArrowRight'){
+        onClickAccept()
+      }else if(e.code === 'ArrowLeft'){
+        onClickRefuse()
+      }     
+    }
+  },[]);
+
   return(
     <CardAppContainer> 
       <CardHeader onClickIconClear={onClickIconClear} onClickIconMatches={onClickIconMatches}/>

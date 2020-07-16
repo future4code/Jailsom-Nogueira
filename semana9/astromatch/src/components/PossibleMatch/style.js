@@ -36,9 +36,10 @@ export const PossibleMatchContainer = styled.div`
   animation: ${props => props.sideToSwipe} 0.5s forwards;
   img{
     max-width: 100%;
-    height: 80%;
+    height: 75%;
     margin: 0 auto;
-    z-index: 1;
+    border-radius: 5px;
+    box-shadow: rgba(117, 117, 117, 0.77) 0px 2px 10px 0px;
   }
 `;
 
