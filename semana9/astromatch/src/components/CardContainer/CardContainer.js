@@ -103,7 +103,7 @@ export default function CardContainer () {
         onClickRefuse()
       }     
     }
-  },[]);
+  },[person]);
 
   return(
     <CardAppContainer> 
