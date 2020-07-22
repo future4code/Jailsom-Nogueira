@@ -8,7 +8,7 @@ export default function Header () {
     history.push("/");
   };
   const goToLoginPage = () => {
-    history.push("/LoginPage");
+    history.push("/login");
   };
   return(
     <AppBar>

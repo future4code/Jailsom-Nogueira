@@ -1,8 +1,9 @@
-import React from "react";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import React from 'react';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import ApplicationFormPage from '../ApplicationFormPage/ApplicationFormPage';
 import CreateTripPage from '../CreateTripPage/CreateTripPage';
+import AllTripsPage from '../AllTripsPage/AllTripsPage';
 import TripDetailsPage from '../TripDetailsPage/TripDetailsPage';
 import Header from '../Header/Header';
 import AdminBar from '../AdminBar/AdminBar';
@@ -16,19 +17,24 @@ export default function Router () {
           <Header />
           <ApplicationFormPage />
         </Route>
-        <Route exact path="/LoginPage">
+        <Route exact path="/login">
           <Header />
           <LoginPage />
         </Route>
-        <Route exact path="/CreateTripPage">
+        <Route exact path="/admin/create-trip">
           <Header />
           <AdminBar />
           <CreateTripPage />
         </Route>
-        <Route exact path="/TripDetailsPage">
+        <Route exact path='/admin/all-trips'>
           <Header />
           <AdminBar />
-          <TripDetailsPage />
+          <AllTripsPage />
+        </Route>
+        <Route exact path="/admin/trip-details/:tripId">
+          <Header />
+          <AdminBar />
+          <TripDetailsPage/>
         </Route>
         <Route path="/">
           <h3>Eita Giovana, o forninho caiu (404)</h3>

@@ -13,4 +13,8 @@ export const ListItem = styled.div`
   padding: 0.2rem;
   border: 1px solid;
   margin: 0.1rem;
+  p{
+    margin: 0;
+    padding: 0;
+  }
 `;

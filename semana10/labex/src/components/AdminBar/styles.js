@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const AdminBarContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 0.8rem 0.1rem;
   margin-bottom: 0.5rem;
   background-color: lightsalmon;
@@ -11,3 +11,6 @@ export const AdminBarContainer = styled.div`
     cursor: pointer;
   }
 `;
+
+
+

@@ -1,11 +1,25 @@
 import styled from 'styled-components';
 
-export const LoginCard = styled.div`
+export const TripDetails = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid;
-  width: 30vw;
-  margin: 0 auto;
   padding: 0.2rem;
-  text-align: center;
+  border: 1px solid;
+  margin: 0.1rem;
+  p{
+    margin: 0;
+    padding: 0;
+  }
+`;
+
+export const CandidateContainer = styled.li`
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem;
+  border: 1px solid;
+  margin: 0.1rem;
+  p{
+    margin: 0;
+    padding: 0;
+  }
 `;
