@@ -13,15 +13,15 @@ export default function Router () {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
+        <Route exact path='/'>
           <Header />
           <ApplicationFormPage />
         </Route>
-        <Route exact path="/login">
+        <Route exact path='/login'>
           <Header />
           <LoginPage />
         </Route>
-        <Route exact path="/admin/create-trip">
+        <Route exact path='/admin/create-trip'>
           <Header />
           <AdminBar />
           <CreateTripPage />
@@ -31,12 +31,12 @@ export default function Router () {
           <AdminBar />
           <AllTripsPage />
         </Route>
-        <Route exact path="/admin/trip-details/:tripId">
+        <Route exact path='/admin/trip-details/:tripId'>
           <Header />
           <AdminBar />
           <TripDetailsPage/>
         </Route>
-        <Route path="/">
+        <Route path='/'>
           <h3>Eita Giovana, o forninho caiu (404)</h3>
         </Route>
       </Switch>

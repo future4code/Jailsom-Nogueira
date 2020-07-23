@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import useInput from '../../hooks/useInput';
+import useForm from '../../hooks/useForm';
 import { PageContainer, FormContainer } from './styles';
+
 import ListTripsComponent from '../ListTripsComponent/ListTripsComponent'
+import AdminBar from '../AdminBar/AdminBar';
+import Countries from '../CountriesListComponent/CountriesListComponent';
 
 import axios from 'axios';
 import { baseUrl, user} from '../../constants/axios';
 
-
 export default function ApplicationFormPage() {
-  const [trip, updateTrip] = useInput('');
-  const [name, updateName] = useInput('');
-  const [age, updateAge] = useInput('');
-  const [profession, updateProfession] = useInput('');
-  const [country, updateCountry] = useInput('');
-  const [description, updateDescription] = useInput('');
-
   const [allTrips, setAllTrips] = useState([]);
+  const token = window.localStorage.getItem('token');
+
+  const { form, onChange } = useForm({
+    trip: '',
+    candidateName: '',
+    age: '',
+    profession: '',
+    country: '',
+    description: ''
+  });
 
   useEffect(() => {
     axios
@@ -30,48 +35,117 @@ export default function ApplicationFormPage() {
   
   const sendApply = () => {
     const body = {
-      "name": `${name}`,
-      "age": `${age}`,
-      "profession": `${profession}`,
-      "country": `${country}`,
-      "applicationText": `${description}`,
+      'name': `${form.candidateName}`,
+      'age': `${form.age}`,
+      'profession': `${form.profession}`,
+      'country': `${form.country}`,
+      'applicationText': `${form.description}`,
     };
     axios
-    .post(`${baseUrl}${user}/trips/${trip}/apply`, body)
+    .post(`${baseUrl}${user}/trips/${form.trip}/apply`, 
+      body
+    )
     .then( response => {
-      alert("Inscrição enviada!");
+      alert('Inscrição enviada!');
     })
     .catch( err => {
-      alert(err.message);
+      console.log(err.message);
     })
   };
 
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+
+    onChange(name, value);
+  };
+
+  const handleSave = event => {
+    event.preventDefault();
+    sendApply();
+  };
+
+  const isLogged = token !== null ? 
+    (<AdminBar />) : (<></>)
+
   return (
-    <PageContainer>
-      <FormContainer>
-        <h1>INSCREVA-SE AQUI</h1>
-        <select value={trip} onChange={updateTrip}>
-          <option defaultValue>Escolha aqui a sua viagem</option>
-          {allTrips.map(trip => {
-            return(
-              <option value={trip.id} key={trip.id}>{trip.name}</option>
-              )
-          })}
-        </select>
-        <h2>DADOS PESSOAIS</h2>
-        <input type='text' placeholder='Seu nome' value={name} onChange={updateName} />
-        <input type='number' placeholder='Sua idade' value={age} onChange={updateAge} />
-        <input type='text' placeholder='Sua profissão' value={profession} onChange={updateProfession} />
-        <select value={country} onChange={updateCountry}>
-          <option defaultValue>País de origem</option>
-          <option value='Brasil'>Brasil</option>
-          <option value='EUA'>EUA</option>
-          <option value='Canadá'>Canadá</option>
-        </select>
-        <textarea rows='6' cols='40' placeholder='Porque sou um bom candidato(a)?' value={description} onChange={updateDescription} />
-        <button onClick={sendApply}>Enviar</button>
-      </FormContainer>
-      <ListTripsComponent />
-    </PageContainer>
+    <>
+      {isLogged}
+      <PageContainer>
+        <FormContainer>
+          <h1>INSCREVA-SE AQUI</h1>
+          <form onSubmit={handleSave}>
+            <select 
+              value={form.trip} 
+              onChange={handleInputChange}
+              name='trip'
+              required
+            >
+              <option defaultValue>Escolha aqui a sua viagem</option>
+              {allTrips.map(trip => {
+                return(
+                  <option 
+                    value={trip.id} 
+                    key={trip.id}>{trip.name} - 
+                    {trip.planet}
+                  </option>
+                  )
+              })}
+            </select>
+            <h2>DADOS PESSOAIS</h2>
+            <input
+              value={form.name}
+              type='text'  
+              name='candidateName' 
+              placeholder='Seu nome' 
+              pattern={'[A-Za-z]{3,}'}
+              title='O nome deve ter no mínimo 3 letras' 
+              required
+              onChange={handleInputChange}
+            />
+            <input
+              value={form.age}               
+              type='number'
+              name='age'
+              min='18'
+              placeholder='Sua idade'
+              required 
+              onChange={handleInputChange} 
+            />
+            <input
+              value={form.profession}  
+              type='text'
+              name='profession' 
+              placeholder='Sua profissão'
+              pattern={'[A-Za-z]{3,}'} 
+              required 
+              onChange={handleInputChange}              
+            />
+            <select 
+              value={form.country} 
+              onChange={handleInputChange}
+              name='country'
+              required
+            >
+              <Countries />
+            </select>
+            <textarea
+              value={form.description}  
+              rows='6' 
+              cols='40'
+              type='text'
+              name='description' 
+              placeholder='Porque sou um bom candidato(a)?'
+              pattern={'[A-Za-z]{30,}'}
+              required  
+              onChange={handleInputChange} 
+            />
+            <button>Enviar</button>
+          </form>
+        </FormContainer>
+        <ListTripsComponent />
+      </PageContainer>
+    </>
   );
-}
+}        
+
+

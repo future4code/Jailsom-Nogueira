@@ -13,18 +13,12 @@ export default function AdminBar () {
     history.push('/admin/all-trips');
   };
 
-  const handleLogout = () => {
-    window.localStorage.clear();
-    history.push("/");
-  };
-
   return(
     <AdminBarContainer>
-      <b>Área de acesso restrito</b>
+      <div />
       <div>
         <button onClick={goToCreateTripPage}>CRIAR VIAGEM</button>
         <button onClick={goToAllTripsPage}>VIAGENS</button>
-        <button onClick={handleLogout}>LOGOUT</button>
       </div>
     </AdminBarContainer>
   )

@@ -5,11 +5,15 @@ import { ListContainer, ListItem } from './styles';
 import axios from 'axios';
 import { baseUrl, user, } from '../../constants/axios';
 
-export default function ListTripsComponent() {
+export default function ListTripsComponentAdmin() {
   const [myTrip, setMyTrip] = useState([]);
 
   const history = useHistory();
   
+  const goToTripDetails = (tripId) => {
+    history.push(`/admin/trip-details/${tripId}`);
+  };
+
   useEffect(() => {
     axios
     .get(`${baseUrl}${user}/trips/`)
@@ -33,6 +37,7 @@ export default function ListTripsComponent() {
             <p><b>Duração:</b> {trip.durationInDays} dias</p>  
             <p><b>Descrição:</b> {trip.description}</p>
           </div>
+          <button onClick={() => goToTripDetails(trip.id)}>Detalhes da viagem</button>
         </ListItem>
         )
       })}

@@ -13,3 +13,4 @@ const useInput = inicialState => {
 };
 
 export default useInput;
+//Não utilizado, deixado aqui para referência
