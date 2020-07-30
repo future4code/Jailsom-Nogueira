@@ -1,10 +1,20 @@
 import React from "react";
 import {
   render,
-  fireEvent
+  fireEvent,
+  wait
 } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import userEvent from '@testing-library/user-event';
 import App from "./App";
+import axios from 'axios'
+
+axios.get = jest.fn().mockResolvedValue({
+  data: []
+})
+
+axios.post = jest.fn().mockResolvedValue()
+
+axios.put = jest.fn().mockResolvedValue()
 
 describe('Renderizacao inicial', () => {
   test('Input existe na tela', () => {
@@ -42,62 +52,61 @@ describe('Criar uma tarefa', () => {
 
     expect(input).toHaveValue('tarefa teste')
   })
-
-  // test('quando o usuario digita e clica em criar tarefa, o input deve ser limpo', () => {
-  //   // Renderiza o App, e desestrutura o retorno pegando as funções "getByPlaceholderText" e "getByText"
-  //   const {
-  //     getByPlaceholderText,
-  //     getByText
-  //   } = render(<App />)
-
-  //   // Encontra o input pelo texto do placeholder
-  //   const input = getByPlaceholderText('Nova tarefa')
-
-  //   // Dispara um evento de "change" para o input. Passa o valor "tarefa teste" para entrar no input
-  //   fireEvent.change(input, {
-  //     target: {
-  //       value: 'tarefa teste'
-  //     }
-  //   })
-
-  //   // Encontra o botão pelo texto "Adicionar". Aqui, usa regex para isso
-  //   const button = getByText(/SALVAR/)
-
-  //   // Clica no botão
-  //   fireEvent.click(button)
-
-  //   // Verifica se o input possui o "value" vazio
-  //   expect(input).toHaveValue('')
-  // })
 })
 
-// describe('Marcar tarefa como completa', () => {
-//   test('Quando clicar na tarefa, ela deve ser riscada', () => {
-//     // Renderiza o App, cria uma tarefa, e desestrutura o retorno pegando as funções "getByTestId"
-//     const {getByTestId} = criaTarefa()
+describe('Lista de tarefas', () => {
+  test('Testa renderização inicial', async () => {
+    axios.get = jest.fn().mockResolvedValue({
+      data: [{
+        day: 'segunda',
+        text: 'bananinha'
+      }]
+    })
+    
+    const {getByPlaceholderText, getByText, findByText} = render(<App/>)
 
-//     // Encontra um item de tarefa
-//     const tarefa = getByTestId('item-tarefa')
+    const input = getByPlaceholderText('Nova tarefa')
+    expect(input).toBeInTheDocument()
 
-//     // Clica no item
-//     fireEvent.click(tarefa)
+    const button = getByText(/SALVAR/)
+    expect(button).toBeInTheDocument()
 
-//     // Verifica se está riscado
-//     expect(tarefa).toHaveStyle('text-decoration: line-through')
-//   })
+    const tarefaBananinha = await findByText(/bananinha/)
+    expect(tarefaBananinha).toBeInTheDocument()
 
-//   test('Quando clicar na tarefa, ela deve ser riscada', () => {
-//     // Renderiza o App, cria uma tarefa, e desestrutura o retorno pegando as funções "getByTestId"
-//     const {getByTestId} = criaTarefa()
+    expect(axios.get).toHaveBeenCalledWith('https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-turing-jailsom/')
+  })
 
-//     // Encontra um item de tarefa
-//     const tarefa = getByTestId('item-tarefa')
+  test('Testa criação de tarefas', async () => {
+    axios.post = jest.fn().mockResolvedValue()
+    axios.get = jest.fn().mockResolvedValue({
+      data: []
+    })
 
-//     // Clica no item 2 vezes
-//     fireEvent.click(tarefa)
-//     fireEvent.click(tarefa)
+    const {getByPlaceholderText, getByText, getByLabelText } = render(<App/>)
 
-//     // Verifica se não está riscado
-//     expect(tarefa).toHaveStyle('text-decoration: none')
-//   })
-// })
+    const input = getByPlaceholderText('Nova tarefa')
+    expect(input).toBeInTheDocument()
+
+    const button = getByText(/SALVAR/)
+    expect(button).toBeInTheDocument()
+
+    await userEvent.type(input, 'bananinha')
+
+    const filterSelect = getByLabelText("day");
+    userEvent.selectOptions(filterSelect, "segunda");
+
+    userEvent.click(button)
+
+    expect(axios.post).toHaveBeenCalledWith('https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-turing-jailsom/', {
+      day: 'segunda',
+      text: 'bananinha'
+    })
+
+    await wait(() => {
+      expect(axios.get).toHaveBeenCalledTimes(2)
+    })
+  })
+  
+})
+

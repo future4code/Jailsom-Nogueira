@@ -75,9 +75,11 @@ export default function App() {
             required
             onChange={handleInputChange}
           />
+          <label htmlFor={'day'}>day</label>
           <select            
             value={form.day} 
-            name='day'
+            name={'day'}
+            id={'day'}
             required
             onChange={handleInputChange}
             >
