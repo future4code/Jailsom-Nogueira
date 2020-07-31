@@ -60,6 +60,7 @@ describe('Lista de tarefas', () => {
   test('Testa renderização inicial', async () => {
     axios.get = jest.fn().mockResolvedValue({
       data: [{
+        id: '1',
         day: 'segunda',
         text: 'bananinha'
       }]
@@ -104,7 +105,6 @@ describe('Lista de tarefas', () => {
       userEvent.click(button)
     });
    
-
     expect(axios.post).toHaveBeenCalledWith('https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-turing-jailsom/', {
       day: 'segunda',
       text: 'bananinha'
