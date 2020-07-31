@@ -41,9 +41,6 @@ export default function App() {
       alert('Tarefa criada!');
       getTrips()
     })
-    .catch( err => {
-      console.log(err.message);
-    })
   };
 
   useEffect(() => {
@@ -56,26 +53,25 @@ export default function App() {
     .then( response => {
       setMyTasks(response.data);
     })
-    .catch( err => {
-      console.log(err.message);
-    })
   }
 
   return (
     <MyTheme>
       <AppBar>
         <ContentContainer onSubmit={handleSave}>
+          <label htmlFor={'task'}>Tarefa</label>
           <input
             value={form.text}
             type='text'  
-            name='text' 
+            name='text'
+            id={'task'} 
             placeholder='Nova tarefa'
             pattern={'[A-Za-z ]{3,30}'} 
             title='A tarefa deve ter no mínimo 10 letras e máximo 30' 
             required
             onChange={handleInputChange}
           />
-          <label htmlFor={'day'}>day</label>
+          <label htmlFor={'day'}>Dia</label>
           <select            
             value={form.day} 
             name={'day'}

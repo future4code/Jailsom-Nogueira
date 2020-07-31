@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import {
   render,
   fireEvent,
   wait
-} from "@testing-library/react";
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from "./App";
+import App from './App';
 import axios from 'axios'
 
 axios.get = jest.fn().mockResolvedValue({
@@ -17,38 +17,40 @@ axios.post = jest.fn().mockResolvedValue()
 axios.put = jest.fn().mockResolvedValue()
 
 describe('Renderizacao inicial', () => {
-  test('Input existe na tela', () => {
+  test('Input existe na tela', async () => {
     const {
       getByPlaceholderText
     } = render( <App /> )
 
     const input = getByPlaceholderText('Nova tarefa')
 
-    expect(input).toBeInTheDocument()
+    await wait(() => expect(input).toBeInTheDocument())
   })
 
-  test('Botao existe na tela', () => {
+  test('Botao existe na tela', async () => {
     const {
       getByText
     } = render( <App /> )
 
-    expect(getByText(/SALVAR/)).toBeInTheDocument()
+    await wait(() => expect(getByText(/SALVAR/)).toBeInTheDocument())
   })
 })
 
 describe('Criar uma tarefa', () => {
-  test('quando o usuario digita, o texto tem que aparecer', () => {
+  test('quando o usuario digita, o texto tem que aparecer', async () => {
     const {
       getByPlaceholderText
     } = render( <App /> )
 
     const input = getByPlaceholderText('Nova tarefa')
 
-    fireEvent.change(input, {
-      target: {
-        value: 'tarefa teste'
-      }
-    })
+    await wait(() => {
+      fireEvent.change(input, {
+        target: {
+          value: 'tarefa teste'
+        }
+      })
+    });
 
     expect(input).toHaveValue('tarefa teste')
   })
@@ -90,13 +92,18 @@ describe('Lista de tarefas', () => {
 
     const button = getByText(/SALVAR/)
     expect(button).toBeInTheDocument()
+    
+    await wait(() => {
+      userEvent.type(input, 'bananinha')
+    });
 
-    await userEvent.type(input, 'bananinha')
+    const filterSelect = getByLabelText('Dia');
 
-    const filterSelect = getByLabelText("day");
-    userEvent.selectOptions(filterSelect, "segunda");
-
-    userEvent.click(button)
+    await wait(() => {
+      userEvent.selectOptions(filterSelect, 'segunda');
+      userEvent.click(button)
+    });
+   
 
     expect(axios.post).toHaveBeenCalledWith('https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-turing-jailsom/', {
       day: 'segunda',
