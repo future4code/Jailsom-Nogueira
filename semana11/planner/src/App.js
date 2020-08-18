@@ -38,8 +38,12 @@ export default function App() {
     axios
     .post(`${baseUrl}`, body)
     .then( response => {
+      
       alert('Tarefa criada!');
       getTrips()
+    })
+    .catch( err => {
+      console.log(err.message);
     })
   };
 
@@ -52,6 +56,10 @@ export default function App() {
     .get(`${baseUrl}`)
     .then( response => {
       setMyTasks(response.data);
+    })
+
+    .catch( err => {
+      console.log(err.message);
     })
   }
 
