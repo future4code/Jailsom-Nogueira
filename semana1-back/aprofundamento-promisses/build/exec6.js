@@ -40,7 +40,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
             promisesArray.push(sendNotifications(subscriber, 'Promise.all é o que msm?'));
         }
         yield Promise.all(promisesArray);
-        console.log('Teminei tudo');
+        console.log('Coisou');
     }
     catch (e) {
         console.log(e.response.data);

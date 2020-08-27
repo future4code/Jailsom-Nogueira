@@ -33,8 +33,25 @@ const sendNotifications = async(subscriber: Subscriber, message: string): Promis
   console.log('Notificação enviada para: ', subscriber.name);
 };
 
+type Notification = {
+  id: string,
+  subscriberId: string,
+  message: string
+}
+
+const getNotificationsBySubscriberId = async(subscriberId: string): Promise<Notification[]> => {
+  const res = await axios.get(`${baseUrl}/subscribers/${subscriberId}/notifications/all`);
+  return res.data.map((notification: Notification) => {
+    return {
+      subscriberId: notification.subscriberId,
+      message: notification.message
+    }
+  })
+};
+
 const main = async () => {
   try {
+
     //criando um novo assinante
     type body = {
       name: string,
@@ -55,6 +72,7 @@ const main = async () => {
       name: "Jay", 
       email: "jay@jaymail.com" 
     })
+
     //criando a danada da noticia
     type bodyCreateNews = {
       title: string,
@@ -71,9 +89,10 @@ const main = async () => {
     }
     await createNew({
       title: "O Jay assinou um jornal", 
-      content: "Espectadores ficaram incrédulos com a noticia de que Jay abrou a mão para assinar um jornal.", 
+      content: "Espectadores ficaram incrédulos com a noticia de que Jay abriu a mão para assinar um jornal.", 
       date: Date.now()
     })
+    
     //mostrando todas as noticias
     const getNews = async (): Promise<any[]> =>{
       const allNews = await axios.get(`${baseUrl}/news/all`);
@@ -81,10 +100,12 @@ const main = async () => {
       return allNews.data;
     }
     await getNews()
+
     //Pegando todos os assinantes
     const subscribers = await getAllSubscribers();
 
     const promisesArray = [];
+    
     //Salvando todos os assinantes num array e enviando notificações
     for (const subscriber of subscribers) {
       promisesArray.push(
@@ -92,8 +113,16 @@ const main = async () => {
       )
     }
 
-    await Promise.all(promisesArray);
-    console.log('Coisou');
+    // 5. Pega todas as notificações que cada usuário recebeu e depois as retorna em um array
+    const notificationPromiseArray = [];
+    for(const subscriber of subscribers) {
+      notificationPromiseArray.push(
+        getNotificationsBySubscriberId(subscriber.id)
+      )
+    }
+
+    const promiseAllResult = await Promise.all(notificationPromiseArray);
+    console.log('Result: ', promiseAllResult)
     
 } catch (e) {
   console.log(e.response.data)
