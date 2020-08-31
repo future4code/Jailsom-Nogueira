@@ -1,0 +1,27 @@
+{
+  "name": "aprofundamento-promisses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "start1": "tsc && node ./build/exec1.js",
+    "start2": "tsc && node ./build/exec2.js",
+    "start3": "tsc && node ./build/exec3.js",
+    "start4": "tsc && node ./build/exec4.js",
+    "start5": "tsc && node ./build/exec5.js",
+    "start6": "tsc && node ./build/exec6.js",
+    "start7": "tsc && node ./build/exec7.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^14.6.1",
+    "axios": "^0.20.0",
+    "moment": "^2.27.0",
+    "typescript": "^4.0.2"
+  }
+}
