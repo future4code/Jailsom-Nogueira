@@ -1,0 +1,16 @@
+{
+  "name": "polimorfismo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node ./src/index.ts"
+  },
+  "author": "Jay",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^13.7.7",
+    "ts-node": "^9.0.0",
+    "typescript": "^3.9.7"
+  }
+}
