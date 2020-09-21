@@ -30,3 +30,7 @@ CREATE TABLE User (
     password VARCHAR(255) NOT NULL
 );
 ```
+
+### Exercício 3
+
+a)Pq eu não sei, mas transforma em string

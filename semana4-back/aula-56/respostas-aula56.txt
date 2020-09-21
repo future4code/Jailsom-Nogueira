@@ -1,0 +1,17 @@
+### Exec. 1
+a) Round é usado para criar um delay de resposta para que cada tentativa de senha não seja instantânea, dificultando 
+assim a descorberta da senha por brute force. Salt é adicionado a senha como algo a mais, tipo uma string, mesclando-se 
+a hash, dificultando assim a relação desta mesma hash com a senha em si. Valores recomendados para o Round estão próximos 
+a 12, sendo assim lentos o suficiente para atrazar uma chamada maliciosa mas não lentos demasiadamente a ponto de
+prejudicar a experiência do usuário. Ainda não utilizei nenhum valor, não cheguei nesta parte do exercício, mas usarei 12 
+como foi sugerido e pelos motivos já citados acima.
+
+### Exec. 2
+a) Primeiro o cadastro, afinal sem este não há como testar o login.
+
+### Exec. 3
+a)
+```
+ALTER TABLE User
+ADD role VARCHAR(255) NOT NULL DEFAULT "Normal";
+```   
