@@ -35,9 +35,9 @@ describe('Testando o PostDatabase', () => {
       post_type: 'normal',
       post_userId: 'fc9af1f8-205e-469a-9d3b-c7045fbbf4ab',
     });
-    afterAll(async () => {
-      await postDatabase.deleteUser('123');
-      await BaseDatabase.destroyConnection();
-    });
+  });
+  afterAll(async () => {
+    await postDatabase.deleteUser('123');
+    await BaseDatabase.destroyConnection();
   });
 });
