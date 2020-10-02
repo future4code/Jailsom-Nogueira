@@ -1,0 +1,28 @@
+{
+  "name": "aula63",
+  "version": "1.0.0",
+  "description": "aula 63 testes automatizdos\u001b[D\u001b[D\u001b[Da\u001b[2~dos",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start:dev": "ts-node-dev ./src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/knex": "^0.16.1",
+    "@types/node": "^14.0.6",
+    "dayjs": "^1.9.1",
+    "jest": "^26.4.2",
+    "knex": "^0.21.1",
+    "mysql": "^2.18.1",
+    "ts-jest": "^26.4.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.9.3"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "dotenv": "^8.2.0"
+  }
+}
